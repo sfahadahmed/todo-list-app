@@ -21,10 +21,15 @@ public class TodoItem {
     public TodoItem() {
     }
 
-    public TodoItem(long id, String title, String description) {
-        this.id = id;
+    public TodoItem(String title, String description) {
         this.title = title;
         this.description = description;
+    }
+
+    public TodoItem(String title, String description, boolean active) {
+        this.title = title;
+        this.description = description;
+        this.active = active;
     }
 
     public long getId() {
