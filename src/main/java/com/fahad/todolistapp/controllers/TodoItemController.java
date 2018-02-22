@@ -3,10 +3,7 @@ package com.fahad.todolistapp.controllers;
 import com.fahad.todolistapp.models.TodoItem;
 import com.fahad.todolistapp.repositories.TodoItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/todoitems")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class TodoItemController {
 
     @Autowired
@@ -32,13 +29,13 @@ public class TodoItemController {
         return todoItems;
     }
 
-    @GetMapping("/by-id/{id}")
-    public TodoItem getById(long id){
+    @GetMapping("/{id}")
+    public TodoItem getById(@PathVariable long id){
         return todoItemRepository.findById(id);
     }
 
     @GetMapping("/by-title/{id}")
-    public TodoItem getByTitle(String title){
+    public TodoItem getByTitle(@PathVariable String title){
         return todoItemRepository.findByTitle(title);
     }
 }
