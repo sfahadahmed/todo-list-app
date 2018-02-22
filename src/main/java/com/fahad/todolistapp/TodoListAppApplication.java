@@ -21,9 +21,9 @@ public class TodoListAppApplication implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         todoItemRepository.deleteAll();
 
-        todoItemRepository.save(new TodoItem("Task 1", "This is task 1"));
-        todoItemRepository.save(new TodoItem("Task 2", "This is task 2"));
-        todoItemRepository.save(new TodoItem("Task 3", "This is task 3"));
+        todoItemRepository.save(new TodoItem("Task 1", "This is task 1", true));
+        todoItemRepository.save(new TodoItem("Task 2", "This is task 2", false));
+        todoItemRepository.save(new TodoItem("Task 3", "This is task 3", true));
 
         for(TodoItem todoItem : todoItemRepository.findAll()){
             System.out.println(todoItem);
